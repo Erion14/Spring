@@ -17,4 +17,23 @@
 		<property name="email" value="erion.ademi@email.com"/>
 	</bean>
 	
+	
+	<bean id="adminRole" class="erion.spring.dependencyinjection.Role">
+		<property name="roleName" value="ADMIN_ROLE"/>
+	</bean>
+	<bean id="adminUser" class="erion.spring.dependencyinjection.User">
+		<constructor-arg name="role" ref="adminRole"/>
+	</bean>
+	<bean id="adminUser2" class="erion.spring.dependencyinjection.User">
+		<constructor-arg index="0" ref="adminRole" /> 
+	</bean>
+	<bean id="adminUser3" class="erion.spring.dependencyinjection.User">
+		<constructor-arg type="Role" ref="adminRole" /> 
+	</bean>
+	
+	<bean id="adminUser4" class="erion.spring.dependencyinjection.User">
+		<property name="role" ref="adminRole" /> 
+	</bean>
+	<bean id="adminUser5" class="erion.spring.dependencyinjection.User" autowire="byType" lazy-init="true"/>
+	
 </beans>  
