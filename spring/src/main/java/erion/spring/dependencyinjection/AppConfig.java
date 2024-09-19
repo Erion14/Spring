@@ -1,5 +1,8 @@
 package erion.spring.dependencyinjection;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,6 +24,16 @@ public class AppConfig {
 		User user = new User();
 		user.setRole(adminRole());
 		return user;
+	}
+
+	@Bean
+	public List<String> orderIds() {
+		return Arrays.asList("id1", "id2", "id3");
+	}
+	
+	@Bean
+	public User4 userWithList() {
+		return new User4(Arrays.asList("id1", "id2", "id3"));
 	}
 	
 
